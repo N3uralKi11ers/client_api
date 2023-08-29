@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class BaseTransaction(BaseModel):
+class TransactionBase(BaseModel):
     recipient: str
     description: str
     amount: float
