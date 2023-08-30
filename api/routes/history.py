@@ -1,12 +1,10 @@
 from fastapi import APIRouter
 from typing import Optional, List
 from schemas import TransactionBase, ProductBase
+from crud import get_transactions
 
 router = APIRouter()
 
-fake_db = [
-
-]
 
 @router.get(
     '/{consumer_name}/',
@@ -14,37 +12,14 @@ fake_db = [
     description="""
     This method returns all goods. 
     """,
-    response_model=List[TransactionBase],
+    # response_model=List[TransactionBase],
 )
 def get_transactions_history(
     consumer_name: str,
-    limit: Optional[int],
+    step: Optional[int] = None,
+    limit: Optional[int] = None,
 ):
-    return [
-        TransactionBase(
-            recipient="qwerty",
-            description="lrhlw lhrewlh wel",
-            amount=123.123,
-        ),
-        TransactionBase(
-            recipient="qwerty",
-            description="lrhlw lhrewlh wel",
-            amount=123.123,
-        ),
-        TransactionBase(
-            recipient="qwerty",
-            description="lrhlw lhrewlh wel",
-            amount=123.123,
-        )
-    ]
-
-
-@router.get(
-    '/{consumer_name}/products',
-    name="All products",
-    response_model=List[ProductBase],
-)
-def get_products_history(
-
-):
-    return []
+    if not limit:
+        return get_transactions(consumer_name)
+    
+    return get_transactions(consumer_name)[step:step + limit]
