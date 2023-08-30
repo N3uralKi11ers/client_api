@@ -11,5 +11,5 @@ def print_values_for_diagram(user_name):
 
 
 def diagram_allocation(user_name) -> Diagram:
-    shares, shares_titles = print_values_for_diagram(user_name)
-    return Diagram(shares=shares, shares_titles=shares_titles)
+    shares, titles = print_values_for_diagram(user_name)
+    return Diagram(shares=shares, titles=titles)
