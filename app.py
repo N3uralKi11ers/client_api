@@ -20,5 +20,4 @@ def get_application():
     return app
 
 
-if __name__ == '__main__':
-    app = get_application()
+app = get_application()
