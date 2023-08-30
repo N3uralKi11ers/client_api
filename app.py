@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-import uvicorn
 
 from api import api_router
 from events import startup_event
@@ -23,4 +22,3 @@ def get_application():
 
 if __name__ == '__main__':
     app = get_application()
-    uvicorn.run(app, host="localhost", port=3000)
