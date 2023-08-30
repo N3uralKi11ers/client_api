@@ -16,7 +16,7 @@ router = APIRouter()
 )
 def get_transactions_history(
     consumer_name: str,
-    step: Optional[int] = None,
+    step: Optional[int] = 0,
     limit: Optional[int] = None,
 ):
     if not limit:

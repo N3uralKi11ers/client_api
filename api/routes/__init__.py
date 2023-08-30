@@ -1,6 +1,7 @@
 from .history import router as history_router
 from .recommendation import router as recommendation_router
 from .cashback import router as cashback_router
+from .diagram import router as diagram_router
 
 # Route for terminal
 from .terminal import router as terminal_router
